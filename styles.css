@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #0f000a, #330011);
+  color: white;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 3.5rem;
+  /* color: #ff004f; */
+  margin-bottom: 50px;
+  text-shadow:
+    0 0 5px #ff004f,
+    0 0 10px #ff004f,
+    0 0 20px #ff004f,
+    0 0 40px #ff004f;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px #ff004f,
+      0 0 10px #ff004f,
+      0 0 20px #ff004f,
+      0 0 40px #ff004f;
+  }
+  30% {
+    text-shadow:
+      0 0 10px #ff004f,
+      0 0 20px #ff004f,
+      0 0 40px #ff004f,
+      0 0 60px #ff004f;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border: 2px solid #ff004f;
+  padding: 25px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 79, 0.2);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 0 10px #ff004f,
+    0 0 20px #ff004f,
+    0 0 40px #ff004f;
+}
+
+.card h3 {
+  color: #ff004f;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #ccc;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn {
+  background-color: transparent;
+  border: 2px solid #ff004f;
+  color: #ff004f;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 5px #ff004f;
+  animation: glow 2s infinite ease-in-out;
+}
+
+.btn::before {
+  content: "";
+  /* position: absolute; */
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: #ff004f;
+  z-index: -1;
+  border-radius: 10px;
+  filter: blur(8px);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+.btn:hover {
+  background-color: #ff004f;
+  color: white;
+  box-shadow:
+    0 0 10px #ff004f,
+    0 0 20px #ff004f,
+    0 0 40px #ff004f;
+}
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px #ff004f, 0 0 10px #ff004f;
+  }
+  20% {
+    box-shadow: 0 0 20px #ff004f, 0 0 30px #ff004f;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
